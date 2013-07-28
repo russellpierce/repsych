@@ -1,3 +1,6 @@
+#Others' Code
+#https://gist.github.com/schaunwheeler/5825002 #handle xlsx as XML!
+
 # Banished here.
 #' Refresh the russmisc package
 #'
