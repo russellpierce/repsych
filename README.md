@@ -24,8 +24,10 @@ Suggestions accepted.
 * Abreviations are all uppercase unless they start the function name.  For example aicCompare versus compareAIC.
 * As a general matter, functions will be defined in verb-noun order as in "I want to <verb> <noun>".
 * Nouns for these purposes will remain in their singular form, e.g. compareAIC not compareAICs.
+
 ### Variable Names
 * Variables that are used inside functions will be all lower case except where it harms readablity and may be seperated by a period except which this would yield an S3 class-like name.
+
 ### Dataset Names
 * Root dataset names will be a capital letters.
 * Subsets/Modifications of those dataset names will be denoted by a period and then the nature of the modification.
