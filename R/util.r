@@ -28,15 +28,3 @@ factory <- function(fun)
     return(list(res, warn=warn, err=err))
   }
 NULL
-
-#' Refresh the russmisc package
-#'
-#' This is just a convenience to unload an reload the russmisc package, useful for rapid development
-#'
-#' @export
-
-russmisc.refresh <- function() {
-  detach("package:russmisc",unload=TRUE)
-  library(russmisc)
-}
-NULL
