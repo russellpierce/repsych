@@ -1,0 +1,36 @@
+\name{effectTerms}
+\alias{effectTerms}
+\title{Extract the main effects and interactions from an aov object}
+\usage{
+  effectTerms(aov.obj,
+    strata.to.extract = names(summary(aov.obj)))
+}
+\arguments{
+  \item{aov.obj}{An object of class aov representing an
+  ANOVA calculation}
+
+  \item{strata.to.extract}{(vector) A vector of the names
+  of the error strata from which to extract effects. As
+  elsewhere, note that these are the names embedded in the
+  aov summary.  It may be best to extract them from a use
+  of the \code{\link{errorTerms}} function.}
+}
+\value{
+  data.frame
+}
+\description{
+  Extract the main effects and interactions from an aov
+  object
+}
+\examples{
+data(EBR.Table.18.25)
+aov.EBR.Table.18.25 <- ezANOVA.EBR.Table.18.25$aov
+effectTerms(aov.EBR.Table.18.25)
+}
+\seealso{
+  Other AggregatingErrorTerms:
+  \code{\link{aggregateErrorTerms}},
+  \code{\link{errorTermRatios}}, \code{\link{errorTerms}},
+  \code{\link{useAggregateErrorTerms}}
+}
+

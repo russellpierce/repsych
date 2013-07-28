@@ -1,0 +1,29 @@
+\name{vlookup}
+\alias{vlookup}
+\title{Vectorized lookup}
+\usage{
+  vlookup(df, rowValues, colValues)
+}
+\arguments{
+  \item{df}{A data.frame}
+
+  \item{rowValues}{A vector of the row values to lookup,
+  matched element by element with colValues}
+
+  \item{colValues}{A vector of the column values to lookup,
+  matched element by element with rowValues}
+}
+\value{
+  A vector from df[x,y] where x and y are pulled in matched
+  pairs
+}
+\description{
+  This function does a vectorized lookup on a data.frame.
+  That is, each individual row is matched with a particular
+  column.
+}
+\examples{
+df.eg <- as.data.frame(matrix(1:100,10,10))
+vlookup(df.eg,c(1:6,6:1),rep(c("V1","V2"),each=6))
+}
+

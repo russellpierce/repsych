@@ -1,0 +1,25 @@
+\name{rCounternull}
+\alias{rCounternull}
+\title{Calcualte the counter null of a correlation coefficient}
+\usage{
+  rCounternull(r)
+}
+\arguments{
+  \item{r}{The r statistic}
+}
+\value{
+  (numeric) The (unsigned) value of the r statistic that is
+  as likely as r=0.
+}
+\description{
+  Calcualte the counter null of a correlation coefficient
+}
+\examples{
+rCounternull(.833)
+}
+\references{
+  Rosenthal, R., Rosnow, R.  L., & Rubin, D. B. (2000).
+  \emph{Contrasts and Effect Sizes in Behavioral Research}.
+  New York: Cambridge University Press. p. 127.
+}
+

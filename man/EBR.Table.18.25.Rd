@@ -1,0 +1,33 @@
+\docType{data}
+\name{EBR.Table.18.25}
+\alias{data.EBR.Table.18.25}
+\alias{EBR.Table.18.25}
+\alias{ezANOVA.EBR.Table.18.25}
+\title{Essentials of Behavioral Research: Methods and Data Analysis, pg 555}
+\description{
+  "Suppose our subjects are five female and five male
+  teachers, each assigned a different set of four pupils to
+  teach in a brief instructional situation.  Of each of
+  these 10 sets of four pupils, two are female and two are
+  male. Furthermore, one female and one male pupil are
+  designated (at random) to the particular teacher as
+  showing special intellectual promise (high expectancy),
+  but nothing is said of the ramining puipils (low
+  expectancy)". data.EBR.Table.18.25 is the example
+  displayed in Table 18.25 in the refered text is provided
+  her in the long format. ezANOVA.EBR.Table.18.25 is the
+  result of the following \code{ezANOVA} function from the
+  package \code{ez}: \code{ezANOVA.EBR.Table.18.25 <-
+  ezANOVA(data=pg555,dv=.(Score),within=.(Expectancy,StudentGender),between=.(TeacherGender),wid=.(TeacherID),return_aov=TRUE,type=3)}
+}
+\details{
+  Included in the package russmisc with the permission of
+  Robert Rosenthal.
+}
+\references{
+  Rosenthal & Rosnow. (2008). \emph{Essentials of
+  Behavioral Research}. Boston: Mc Graw Hill. p 555.
+}
+\keyword{data}
+\keyword{datasets}
+

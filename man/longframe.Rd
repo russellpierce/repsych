@@ -1,0 +1,30 @@
+\name{longframe}
+\alias{longframe}
+\title{Transform a wide dataset into a long dataset.}
+\usage{
+  longframe(wide.data, btwnsubnames, wide.var.names,
+    value.name = NA, dropcol = c())
+}
+\arguments{
+  \item{wide.data}{The wide dataset}
+
+  \item{btwnsubnames}{The between subject identifiers}
+
+  \item{wide.var.names}{The variables that are in the wide
+  format}
+
+  \item{value.name}{unknown}
+
+  \item{dropcol}{Columns to drop from the long format}
+}
+\description{
+  There is almost certainly a better way to do this.  The
+  aim here is to turn a wide dataset into a long dataset.
+}
+\examples{
+widenames(c("Age","Workload"),c(2,2))
+}
+\seealso{
+  \code{\link{widenames}}
+}
+

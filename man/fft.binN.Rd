@@ -1,0 +1,14 @@
+\name{fft.binN}
+\alias{fft.binN}
+\title{Find the number of FFT bins}
+\usage{
+  fft.binN(Nsample)
+}
+\arguments{
+  \item{Nsample}{numeric The number of samples in the time
+  series}
+}
+\description{
+  Find the number of FFT bins
+}
+

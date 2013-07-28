@@ -1,0 +1,15 @@
+\docType{package}
+\name{repsych-package}
+\alias{repsych}
+\alias{repsych-package}
+\title{russmisc-package placeholder}
+\description{
+  A repository for a variety of useful functions.
+}
+\details{
+  A respository for a variety of useful functions which may
+  be of interest or otherwise reused.  Unless otherwise
+  stated in the function description, all functions are
+  authored by Russell S. Pierce.
+}
+

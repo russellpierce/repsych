@@ -1,0 +1,40 @@
+\name{dfEffects}
+\alias{dfEffects}
+\title{Degrees of Freedom and Effects}
+\usage{
+  dfEffects(vars, levels)
+}
+\arguments{
+  \item{vars}{(character vector) Independent Variables}
+
+  \item{levels}{(integer vector) Levels for each of those
+  indpendent variables respectively}
+}
+\value{
+  data.frame with two columns, effect (the name of the
+  effect) and df (the df associated with that effect)
+}
+\description{
+  Calculate the effects and degrees of freedom for a set of
+  \emph{fully crossed} effects.
+}
+\examples{
+#Table 18.24
+#Calculate the within effects
+within <- dfEffects(c("Expectancy","Pupil Sex"),c(2,2))
+#Specify the between effects (these can't be calculated using dfEffects because they aren't fully crossed)
+btwn <- data.frame(effect=c("Sex of Teacher","Teachers (within sex)"),df=c(1,8))
+#Now we rbind these two and use grid.expand to explore all possible combinations
+
+table.18.24 <- rbind(btwn,within,data.frame(effect=apply(expand.grid(btwn$effect,within$effect),1,paste,collapse=":"),df=apply(expand.grid(btwn$df,within$df),1,prod)))
+# Table 18.30 uses the same between subjects effects but has a more complex within structure that we create using this function
+
+within <- dfEffects(c("Expectancy","Pupil Sex","Diagnosis"),c(2,2,2))
+rbind(btwn,within,data.frame(effect=apply(expand.grid(btwn$effect,within$effect),1,paste,collapse=":"),df=apply(expand.grid(btwn$df,within$df),1,prod)))
+# Note: Obviously the order of effects is different here than in R&R.
+}
+\references{
+  Rosenthal & Rosnow. (2008). \emph{Essentials of
+  Behavioral Research}. Boston: Mc Graw Hill.
+}
+

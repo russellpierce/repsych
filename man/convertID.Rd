@@ -1,0 +1,23 @@
+\name{convertID}
+\alias{convertID}
+\title{Convert Excel Column ID}
+\usage{
+  convertID(ID)
+}
+\arguments{
+  \item{ID}{Either a character or numeric value specifying
+  the ID to convert.}
+}
+\value{
+  character or numeric; the reverse of what was specified
+  by ID
+}
+\description{
+  This function converts R numeric column IDs to Excel
+  letter IDs and vice versa.
+}
+\note{
+  This function is not properly vectorized, it can only
+  handle a single ID
+}
+

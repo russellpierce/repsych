@@ -1,0 +1,20 @@
+\docType{data}
+\name{examples213}
+\alias{data.names}
+\alias{examples213}
+\alias{hw213.1.I.L}
+\alias{hw213.1.I.W}
+\alias{sec213.1.I.L}
+\alias{sec213.1.I.W}
+\alias{sec213.1.II.W}
+\alias{sec213.2.L}
+\alias{sec213.2.W}
+\alias{sec213.4.L}
+\title{Examples for Psych 213 taught at University of California, Riverside Winter of 2013.}
+\description{
+  Examples for Psych 213 taught at University of
+  California, Riverside Winter of 2013.
+}
+\keyword{data}
+\keyword{datasets}
+

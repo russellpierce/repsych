@@ -1,0 +1,34 @@
+\name{visangle}
+\alias{visangle}
+\title{Calculate visual angle given a stimulus size and viewing distance}
+\usage{
+  visangle(stimsize.val, viewdist.val, offset = 0)
+}
+\arguments{
+  \item{stimsize.val}{The stimulus size}
+
+  \item{viewdist.val}{The viewing distance}
+
+  \item{offset}{The offset of the center of the object from
+  the center of the viewing angle}
+}
+\value{
+  Degrees in visual angle for the given stimulus size
+}
+\description{
+  Calculate visual angle given a stimulus size and viewing
+  distance
+}
+\note{
+  The units of measure should be the same for both
+  parameters
+}
+\examples{
+visangle(10,100)
+visangle(visangle(0.75438,45),viewdist(visangle(0.75438,45),0.75438))
+}
+\seealso{
+  \code{\link{stimsize}} \code{\link{viewdist}}
+  \code{link{visangle3D}}
+}
+

@@ -1,0 +1,20 @@
+\name{uniquePermutations}
+\alias{uniquePermutations}
+\title{Create a unique set of permutations}
+\usage{
+  uniquePermutations(conds, N)
+}
+\arguments{
+  \item{conds}{A list of values you want the unique
+  permutations of}
+
+  \item{N}{The number of unique permutations you want}
+}
+\value{
+  (matrix) It will return a matrix of the conds with each
+  row representing a unique permutation
+}
+\description{
+  Create a unique set of permutations
+}
+

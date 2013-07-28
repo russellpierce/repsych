@@ -1,0 +1,28 @@
+\name{dist3D}
+\alias{dist3D}
+\title{Calculate the distance between two 3D points}
+\usage{
+  dist3D(point1, point2)
+}
+\arguments{
+  \item{point1}{The location of the first point as a
+  numeric vector of length 3 c(X,Y,Z) or ordered list}
+
+  \item{point2}{The location of the second point as a
+  numeric vector of length 3 c(X,Y,Z) or ordered list}
+}
+\value{
+  numeric distance between two points
+}
+\description{
+  Calculate the distance between two 3D points
+}
+\examples{
+dist3D(c(5,6,2),c(-7,11,-13))
+dist3D(list(c(0,0),c(0:0),c(0,0)),list(1:2,3:4,5:6))
+dist3D(list(5,6,2),list(-7,11,-13))
+}
+\references{
+  \url{http://www.calculatorsoup.com/calculators/geometry-solids/distance-two-points.php}
+}
+

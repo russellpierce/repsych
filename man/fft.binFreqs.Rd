@@ -1,0 +1,20 @@
+\name{fft.binFreqs}
+\alias{fft.binFreqs}
+\title{Report the frequencies of the the bins in an FFT}
+\usage{
+  fft.binFreqs(sfreq, Nsample)
+}
+\arguments{
+  \item{sfreq}{numeric The number of samples per unit of
+  time, e.g. Hz}
+
+  \item{Nsample}{numeric The number of samples in the time
+  series}
+}
+\description{
+  Report the frequencies of the the bins in an FFT
+}
+\note{
+  This code might not work
+}
+

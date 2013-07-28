@@ -1,0 +1,36 @@
+\name{factory}
+\alias{factory}
+\title{Catch errors and warnings and store them for subsequent evaluation}
+\usage{
+  factory(fun)
+}
+\arguments{
+  \item{fun}{The function to be turned into a factory}
+}
+\value{
+  list[3]: item 1 is the result from the function and $warn
+  and $err contain warning and error messages respectively.
+}
+\description{
+  Factory is not my code.  Factory generates a function
+  which is appropriately wrapped by error handlers.  The
+  result produced is a list. This is a nice way to recover
+  from a loop problems that may have occured during loop
+  evaluation.  Check the references for additional related
+  functions. I have not included the other factory
+  functions because they did not play well with the return
+  item as an S4 object.
+}
+\examples{
+f.log <- factory(log)
+f.log("a")
+f.as.numeric <- factory(as.numeric)
+f.as.numeric(c("a","b",1))
+}
+\author{
+  Martin Morgan; Packaged by Russell S. Pierce
+}
+\references{
+  \url{http://stackoverflow.com/questions/4948361/how-do-i-save-warnings-and-errors-as-output-from-a-function}
+}
+

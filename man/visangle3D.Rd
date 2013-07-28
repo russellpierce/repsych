@@ -1,0 +1,54 @@
+\name{visangle3D}
+\alias{visangle3D}
+\title{Calculate visual angle given a 3D viewer position, stimulus size, and stimulus position}
+\usage{
+  visangle3D(viewerloc, stimloc, stimdim)
+}
+\arguments{
+  \item{viewerloc}{The location of the center of the viewer
+  as a numeric vector of length 3 c(X,Y,Z)}
+
+  \item{stimloc}{The location of the center of the stimulus
+  as a numeric vector of length 3 c(X,Y,Z)}
+
+  \item{stimdim}{The stimulus dimensions as a numeric
+  vector of length 2 c(width,height)}
+}
+\value{
+  Degrees in visual angle for the given stimulus dimentions
+  and positions of viewer and stimuli
+}
+\description{
+  This function calculates the visual angle of a stimulus
+  given a viewer position, stimulus size, and stimulus
+  position. Here I make fewer assumptions and calculate the
+  distance between the viewer and the edges of the object
+  in order to use the law of cosines to calculate the
+  associated angle.
+}
+\note{
+  The units of measure should be the same for all
+  parameters.  Z is assumed to be the depth plane.
+}
+\examples{
+#corresponds to an offset of 10 and 10 and a viewer distance of 20
+viewerloc <- c(0,0,0)
+stimloc<-c(10,10,-20)
+stimsize.val <- 10
+stimdim <- c(stimsize.val,1)
+visangle(stimsize.val,20,pythag(stimloc[1],stimloc[2]))
+visangle3D(viewerloc,stimloc,stimdim)
+#corresponds to an offset of 10 and 0 and a viewer distance of 20
+viewerloc <- c(0,0,0)
+stimloc<-c(10,0,-20)
+stimsize.val <- 10
+stimdim <- c(stimsize.val,1)
+visangle(stimsize.val,20,pythag(stimloc[1],stimloc[2]))
+visangle3D(viewerloc,stimloc,stimdim)
+visangle3D(list(c(1,1),c(1,1),c(1,1)),list(c(2,2),c(2,2),c(2,2)),list(c(3,3),c(3,3)))
+visangle3D(list(1,2,3),list(3,4,5),list(2,2))
+}
+\seealso{
+  \code{\link{visangle}}
+}
+

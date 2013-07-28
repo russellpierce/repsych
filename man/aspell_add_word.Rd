@@ -1,0 +1,20 @@
+\name{aspell_add_word}
+\alias{aspell_add_word}
+\title{Add a word to the end of an aspell dictionary}
+\usage{
+  aspell_add_word(word, dict)
+}
+\arguments{
+  \item{word}{The word to be added to the dictionary}
+
+  \item{dict}{The location of the dictionary}
+}
+\description{
+  Actually this adds the value in the 'word' parameter to
+  the end of any file specified by the 'file' argument.
+}
+\examples{
+#mydictloc <- "c:\\\\rsp\\\\tools\\\\aspell\\\\bin\\\\aspell.exe"
+#aspell_add_word("pythagorean",mydictloc)
+}
+

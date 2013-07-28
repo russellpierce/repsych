@@ -1,0 +1,26 @@
+\name{conv3Dto2D}
+\alias{conv3Dto2D}
+\title{Calculate the projection position of a real world object}
+\usage{
+  conv3Dto2D(TargetPosition, TargetDepth, ScreenDepth)
+}
+\arguments{
+  \item{TargetPosition}{The targets' position in width
+  and/or height coordinates}
+
+  \item{TargetDepth}{The targets' position in depth
+  coordinates}
+
+  \item{ScreenDepth}{The position of the projection plane
+  in depth coordinates}
+}
+\value{
+  numeric Projection position in the coordinate type
+  specified in TargetPosition
+}
+\description{
+  Given the position of an object in 3D space and the depth
+  of the projection plane, calculate the position of the
+  projection of that object on projection plane
+}
+

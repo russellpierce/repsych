@@ -1,0 +1,44 @@
+\name{widenames}
+\alias{widenames}
+\title{Generate Names for a Wide Stuctured Dataset}
+\usage{
+  widenames(varnames,
+    varlevels = vector("list", length(varnames)))
+}
+\arguments{
+  \item{varnames}{This can be a vector of character values,
+  a list of character values, or a data.frame of factors.}
+
+  \item{varlevels}{This can be a vector of numeric
+  (specifying the number of levels) or a list of character
+  (specifying the factor levels) when varnames is a vector
+  of characters.  When varnames is a data.frame, it must be
+  a list specifying either the numeric id of the desired
+  factor levels or the names of the factors themselves.}
+}
+\description{
+  This function attempts to be flexible, but may not cover
+  all usage cases. See the examples for known-supported
+  usage cases.
+}
+\examples{
+widenames(c("Age","Workload"),c(2,2))
+widenames(c("Age","Workload"),list(c("Young","Old"),c("High","Low")))
+widenames(list("Age","Workload"),list(c("Young","Old"),c("High","Low")))
+widenames(list("Age","Workload"),c(2,2))
+
+df <- data.frame(Var1=factor(LETTERS[1:5]),Var2=factor(10:14))
+widenames(df)
+widenames(df,list(Var1=c("A","B"),Var2=1:2))
+widenames(df,list(Var1=c("A","B"),Var2=NULL))
+widenames(df,list(Var1=NULL,Var2=1:2))
+widenames(df,list(Var1=NULL,Var2=c("11","13")))
+widenames(df,list(Var1=c("A","B"),Var2=c("10","11","12")))
+# widenames(df,c(2,3)) #Not supported
+data(examples213)
+widenames(sec213.1.I.L[c("Prep","Day")])
+}
+\seealso{
+  \code{\link{longframe}}
+}
+

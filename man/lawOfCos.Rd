@@ -1,0 +1,35 @@
+\name{lawOfCos}
+\alias{lawOfCos}
+\title{Use the law of sines
+Use the law of cosines to calculate an angle}
+\usage{
+  lawOfCos(A, B, C)
+}
+\arguments{
+  \item{A}{numeric Length of side A}
+
+  \item{B}{numeric Length of side B}
+
+  \item{C}{numeric Length of side C}
+}
+\value{
+  list(a=numeric angle opposite A,b=numeric angle opposite
+  B,c=numeric angle opposite C)
+}
+\description{
+  Given that A, B, and C are the legs of a triangle solve
+  the the opposite angles
+}
+\examples{
+lawOfCos(3,4,5)
+lawOfCos(3,3,3)
+stimsize.val <- 10 #the stimulus size
+dist <- 15 #the distance
+visangle(10,15)-lawOfCos(stimsize.val,pythag(stimsize.val/2,dist),pythag(stimsize.val/2,dist))$a
+offset <- 5
+visangle(10,15,5)-lawOfCos(stimsize.val,pythag(stimsize.val/2+offset,dist),pythag(stimsize.val/2-offset,dist))$a
+}
+\references{
+  \url{http://oakroadsystems.com/twt/solving.htm#eq30}
+}
+

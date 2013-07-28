@@ -1,0 +1,28 @@
+\name{pythag}
+\alias{pythag}
+\title{Calculate the pythagorean theorem to solve for A, B, or C}
+\usage{
+  pythag(a = NULL, b = NULL, c = NULL)
+}
+\arguments{
+  \item{a}{Leg 1}
+
+  \item{b}{Leg 2}
+
+  \item{c}{Hypotenuse}
+}
+\value{
+  numeric The length of the unspecified side
+}
+\description{
+  Given that A and B are the legs of a right triangle and C
+  is its hypotenuse: solve for A, B, or C given any other
+  two.
+}
+\examples{
+pythag(a=3,c=pythag(3,4))
+}
+\references{
+  \url{http://en.wikipedia.org/wiki/Pythagorean_theorem}
+}
+

@@ -1,0 +1,25 @@
+\name{notin}
+\alias{\%!in\%}
+\alias{notin}
+\title{Not in}
+\usage{
+  notin(x, y)
+}
+\arguments{
+  \item{x}{vector or NULL: the values to be matched.}
+
+  \item{y}{vector or NULL: the values to be matched
+  against.}
+}
+\value{
+  logical vector of length x
+}
+\description{
+  Logical operator opposite of \%in\%
+}
+\examples{
+## Example not run
+#1:5 \%in\% c(2,4)
+#1:5 \%!in\% c(2,4)
+}
+

@@ -1,0 +1,52 @@
+\name{makewave}
+\alias{makewave}
+\title{Make wave}
+\usage{
+  makewave(freq, phase, amp, Nsamples = time * samplerate,
+    samplerate, time = Nsamples/samplerate,
+    as.time.series = TRUE)
+}
+\arguments{
+  \item{freq}{The frequency of cycles per unit time (e.g.
+  Hz) of the sine wave}
+
+  \item{phase}{The frequency in degrees of the sine wave}
+
+  \item{amp}{The amplitude of the sine wave}
+
+  \item{Nsamples}{The number of samples to generate, this
+  defaults to the time * sample rate.}
+
+  \item{samplerate}{The number of samples to create per
+  unit of time}
+
+  \item{time}{The number of units of time represented by
+  the generated sine wave}
+
+  \item{as.time.series}{Should the result be returned as a
+  time series ts()}
+}
+\value{
+  A numeric vector or a time series representing the
+  specified sine wave
+}
+\description{
+  Generate a vector of numeric data points representing a
+  sine wave
+}
+\note{
+  coh is calculated as coh[, i + (j - 1) * (j - 2)/2] <-
+  Mod(pgram[, i, j])^2/(spec[, i] * spec[, j]) Mod(pgram[,
+  i, j])^2 #cross-amplitude values
+}
+\examples{
+plot(makewave(2,0,3.889*1.6,180,60))
+sp <- spectrum(ts.union(makewave(15,30,1,180,60),makewave(15.01,60,1,180,60)),span=c(3),taper=0)
+with(sp,data.frame(freq=freq,sta.freq=freq/60,phase=round(phase,4),coh=round(coh,4),phase.deg=round(phase/(2*pi)*180,2)))[c(35,45,55),]
+plot(sp$freq,sp$phase/(2*pi)*180,type="l")
+plot(sp,plot.type="phase")
+plot(sp,plot.type="coh")
+plot(ts.union(makewave(15,30,1,180,60),makewave(15.01,60,1,180,60)))
+Mod(mvfft(ts.union(makewave(15,30,1,180,60),makewave(15.01,60,1,180,60))))
+}
+

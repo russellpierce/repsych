@@ -1,0 +1,19 @@
+\name{visangle3D.l}
+\alias{visangle3D.l}
+\title{Helper function for visangle3D to handle lists}
+\usage{
+  visangle3D.l(viewerloc, stimloc, stimdim)
+}
+\arguments{
+  \item{viewerloc}{The location of the center of the viewer
+  as a list}
+
+  \item{stimloc}{The location of the center of the stimulus
+  as a list}
+
+  \item{stimdim}{The stimulus dimensions as a numeric list}
+}
+\description{
+  Helper function for visangle3D to handle lists
+}
+

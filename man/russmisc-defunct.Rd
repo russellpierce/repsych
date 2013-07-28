@@ -1,0 +1,16 @@
+\name{russmisc-defunct}
+\alias{russmisc-defunct}
+\alias{t.contrast}
+\title{Defunct function(s) in the russmisc package}
+\description{
+  These functions were in older versions of the russmisc
+  package or russfnc scripts, but now have been completely
+  removed. Where possible they will retain a call to
+  .Defunct.
+}
+\section{Details}{
+  \tabular{rl}{ \code{t.contrast} \tab conflicted with the
+  packaging and has been removed, see
+  \code{\link{tContrast}} for a replacement\cr }
+}
+

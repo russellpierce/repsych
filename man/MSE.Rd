@@ -1,0 +1,20 @@
+\name{MSE}
+\alias{MSE}
+\title{Calculate the mean squared error}
+\usage{
+  MSE(x, y, ...)
+}
+\arguments{
+  \item{x}{Numeric data series}
+
+  \item{y}{Numeric data series}
+
+  \item{...}{further arguments for mean}
+}
+\value{
+  numeric
+}
+\description{
+  Calculate the mean squared error
+}
+

@@ -1,0 +1,20 @@
+\name{table.png}
+\alias{table.png}
+\title{Print LaTex Table Direction to an Image}
+\usage{
+  table.png(obj, name)
+}
+\arguments{
+  \item{obj}{The matrix to turn into a table}
+
+  \item{name}{The name of the png to produce (without
+  extention)}
+}
+\description{
+  Print LaTex Table Direction to an Image
+}
+\author{
+  Found here:
+  http://stackoverflow.com/questions/9298765/print-latex-table-directly-to-an-image-png-or-other
+}
+

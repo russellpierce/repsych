@@ -1,0 +1,16 @@
+\name{r2t}
+\alias{r2t}
+\title{Convert r to a t}
+\usage{
+  r2t(r, df)
+}
+\arguments{
+  \item{r}{The correlation coefficient value}
+
+  \item{df}{the df for the correlation coefficient.  This
+  is typically the number of pairs minus 2.}
+}
+\description{
+  Convert r to a t
+}
+

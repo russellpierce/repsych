@@ -1,0 +1,22 @@
+\name{degrees}
+\alias{degrees}
+\title{Convert radians to degrees}
+\usage{
+  degrees(radians)
+}
+\arguments{
+  \item{radians}{A value in radians}
+}
+\value{
+  The value provided in radians converted to degrees
+}
+\description{
+  Convert radians to degrees
+}
+\examples{
+degrees(pi)
+}
+\seealso{
+  \code{\link{radians}}
+}
+

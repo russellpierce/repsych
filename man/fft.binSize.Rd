@@ -1,0 +1,17 @@
+\name{fft.binSize}
+\alias{fft.binSize}
+\title{Find the size of an FFT bin}
+\usage{
+  fft.binSize(sfreq, Nsample)
+}
+\arguments{
+  \item{sfreq}{numeric The number of samples per unit of
+  time, e.g. Hz}
+
+  \item{Nsample}{numeric The number of samples in the time
+  series}
+}
+\description{
+  Find the size of an FFT bin
+}
+

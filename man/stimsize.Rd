@@ -1,0 +1,28 @@
+\name{stimsize}
+\alias{stimsize}
+\title{Calculate a stimulus size given a visual angle and viewing distance}
+\usage{
+  stimsize(visangle.val, viewdist.val)
+}
+\arguments{
+  \item{visangle.val}{A value in degrees of visual angle}
+
+  \item{viewdist.val}{A viewing distance}
+}
+\value{
+  The stimulus size that when centrally presented would
+  have a visual angle (in degrees) of visangle.val.
+  Stimulus size is reported in the same units as
+  viewdist.val.
+}
+\description{
+  Calculate a stimulus size given a visual angle and
+  viewing distance
+}
+\examples{
+stimsize(visangle(10,100),100)
+}
+\seealso{
+  \code{\link{viewdist} \link{stimsize}}
+}
+

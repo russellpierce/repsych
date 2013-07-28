@@ -1,0 +1,27 @@
+\name{popscale}
+\alias{popscale}
+\title{Population scale/Z scores}
+\usage{
+  popscale(x, center = TRUE, scale = TRUE)
+}
+\arguments{
+  \item{x}{A numeric vector, matrix, or data.frame}
+
+  \item{center}{A logical indicating whether the scores in
+  the columns in x should have their column means
+  subtracted}
+
+  \item{scale}{A logical indicating whether the scores in
+  the columns in x should be divided by their column
+  standard deviations}
+}
+\description{
+  The built-in R function scale uses the sample standard
+  deviation when its scale option is set to TRUE. This
+  function uses the population standard deviation instead.
+}
+\author{
+  Borrowed from Ryne Sherman on 2012/09/06, his function is
+  named scale2
+}
+

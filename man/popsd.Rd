@@ -1,0 +1,31 @@
+\name{popsd}
+\alias{popsd}
+\title{Calculate the population standard deviation of x
+Usage
+popsd(x)}
+\usage{
+  popsd(x, nomiss = 0.8)
+}
+\arguments{
+  \item{x}{A numeric vector}
+
+  \item{nomiss}{A numeric vector specifying the proporiton
+  of valid cases in x (i.e. data that must not be NA) for
+  the sd to be returned}
+}
+\description{
+  Calculate the population standard deviation of x Usage
+  popsd(x)
+}
+\note{
+  R's built-in sd function divides the sum of the squared
+  deviations from the mean by the number of observations
+  minus 1 (N-1). However, there are times where one would
+  prefer to use the formula with N in the denominator (e.g.
+  if one is working with the entire population of scores).
+  This function does just that.
+}
+\author{
+  Borrowed from Ryne Sherman on 2012/09/06
+}
+
