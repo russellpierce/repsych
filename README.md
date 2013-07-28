@@ -7,6 +7,7 @@ R Function for Reproducible Research in Psychology
 I think the good old days of the repository are gone.  Soon (by the end of 2013) the current stable version of repsych
 will be on CRAN.  Until that time, or if you want to work on the development version, there are several approaches
 availble.
+
 1. The official github method:  a pain for Windows users, but fine for most people
 2. Manual:  this is probably what you want if you are only interested in a few specific functions from repsych
 3. Private distribution from source
