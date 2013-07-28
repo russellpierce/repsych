@@ -1,3 +1,16 @@
+# Banished here.
+#' Refresh the russmisc package
+#'
+#' This is just a convenience to unload an reload the russmisc package, useful for rapid development
+#'
+#' @export
+
+repsychRefresh <- function() {
+  detach("package:russmisc",unload=TRUE)
+  library(russmisc)
+}
+NULL
+
 #require(russmisc) #
 #' Not in
 #' 
