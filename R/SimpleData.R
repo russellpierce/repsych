@@ -166,20 +166,18 @@ unfactor <- function(factors)
     #none failed to convert, must want numeric
     ret <- num.try
   }
-  if (num.n.fail == length(factors) {
+  if (num.n.fail == length(factors)) {
     #none converted, they must want text
     return(char.ret) 
   } else {
-    
-  }
-    
-  }
-  num.ret <- tryCatch(as.numeric(char.ret),warning=function (w) {
-    #see how many we failed to convert
-    raw <- 
-    names(table(as.character(my.ugly.factor)[is.na(})))]))
-    nameNAvalues(as.numeric(as.character(not.a.factor)))
-  })#end non-numeric error handling
+    num.ret <- tryCatch(as.numeric(char.ret),
+                        warning=function (w) {
+      #see how many we failed to convert    
+      #names(table(as.character(my.ugly.factor)[is.na(})))]))
+      #nameNAvalues(as.numeric(as.character(not.a.factor)))
+      }
+    )
+  }#end non-numeric error handling
   if (!is.null(num.ret)) return(num.ret) else return(char.ret)
   stop("In repsych::unfactor: no return value was provided, coding error")
 }

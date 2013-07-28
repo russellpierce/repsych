@@ -1,0 +1,8 @@
+Package: repsych
+Version: 3.0.0.2
+Depends: e1071, MASS, reshape2, foreach, xtable, plyr,
+      ez
+License: Artistic-2.0
+NeedsCompilation: no
+MD5sum: 27e4b8ada623017e4185cfd999209688
+
