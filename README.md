@@ -33,8 +33,8 @@ dev_mode(FALSE)
 Install the devtools library ```(install.packages('devtools')```
 #### Windows Setup
 * Install Rtools, http://cran.r-project.org/bin/windows/Rtools/ to match your version of R
-* Install devtools via ```install.packages('devtools',type='source'))```
-* 
+* Install devtools via ```install.packages('devtools',type='source')```
+
 
 ### Manual
 ```
