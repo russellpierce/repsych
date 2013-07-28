@@ -1,4 +1,4 @@
-repsych
+repsych - tweaks branch
 =======
 
 R Function for Reproducible Research in Psychology
