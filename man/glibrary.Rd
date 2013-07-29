@@ -19,10 +19,11 @@
   select the mirror, otherwise it auto-selects on the basis
   of the country code}
 
-  \item{countrycode}{This option is ignored for R version
-  2.15.2 and higher and the RStudio Cloud is selected.
-  Otherwise, glibrary compares this value to results from
-  getCRANmirrors() to select a mirror in the specified
+  \item{countrycode}{This option is ignored and the first
+  mirror with the substring "Cloud", e.g. the RStudio
+  cloud, is selected.  If no mirrors with that substring
+  are identified, glibrary compares this value to results
+  from getCRANmirrors() to select a mirror in the specified
   country.}
 }
 \value{
