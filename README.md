@@ -30,7 +30,7 @@ library(repsych)
 dev_mode(FALSE)
 ```
 #### Mac/Linux Setup
-Install the devtools library ```(install.packages('devtools')```
+Install the devtools library ```install.packages('devtools')```
 #### Windows Setup
 * Install Rtools, http://cran.r-project.org/bin/windows/Rtools/ to match your version of R
 * Install devtools via ```install.packages('devtools',type='source')```
