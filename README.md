@@ -77,6 +77,15 @@ Suggestions accepted.
 * Root dataset names will be a capital letters.
 * Subsets/Modifications of those dataset names will be denoted by a period and then the nature of the modification.
 
-
+## Disclaimer 
+This package is distributed in the interest of information exchange.
+The opinions, findings, and conclusions expressed in this package are those of the authors and not necessarily 
+those of employers, significant others, friends, or pets.  Use at your own risk.  
+No party assumes liability for its contents or use thereof. 
+If trade or manufacturers' names or products are mentioned, 
+   it is because they are considered essential to the object of the package and 
+   should not be construed as an endorsement.  
+Communications made through this website in no way constitute legal or official
+notice or comment to any individual or organization for any purpose.
 
 
