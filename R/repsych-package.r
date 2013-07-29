@@ -10,7 +10,7 @@
 NULL
 .onAttach <- function(libname,pkgname) {
     packageStartupMessage(paste(
-      'Starting:','russmisc',
+      'Starting:','repsych',
       '
 	Version:',utils::packageVersion("repsych"),
       '
