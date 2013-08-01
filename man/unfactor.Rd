@@ -2,10 +2,16 @@
 \alias{unfactor}
 \title{Unfactor a vector}
 \usage{
-  unfactor(factors)
+  unfactor(factors, ignore = ",")
 }
 \arguments{
   \item{factors}{The vector of factors to be unfactored}
+
+  \item{ignore}{(character) Strings formatted to be used by
+  \link{gsub} in the pattern argument to be removed from
+  the character vector}
+
+  \item{...}{Additional arguments passed to gsub}
 }
 \value{
   character or numeric
