@@ -34,3 +34,4 @@ Collate:
     'VisualAngleCalculations.R'
     'Writing.R'
     'repsych-package.r'
+    'unfactor.r'
