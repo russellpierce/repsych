@@ -2,7 +2,7 @@
 \alias{unfactor}
 \title{Unfactor a vector}
 \usage{
-  unfactor(factors, ignore = ",")
+  unfactor(factors, ignore = ",", ...)
 }
 \arguments{
   \item{factors}{The vector of factors to be unfactored}

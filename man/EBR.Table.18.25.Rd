@@ -1,7 +1,7 @@
 \docType{data}
 \name{EBR.Table.18.25}
-\alias{data.EBR.Table.18.25}
 \alias{EBR.Table.18.25}
+\alias{data.EBR.Table.18.25}
 \alias{ezANOVA.EBR.Table.18.25}
 \title{Essentials of Behavioral Research: Methods and Data Analysis, pg 555}
 \description{

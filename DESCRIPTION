@@ -1,8 +1,8 @@
 Package: repsych
 Type: Package
 Title: Package for reproducible psychological research
-Version: 1.0.0.1
-Date: 2013-07-28
+Version: 1.0.0.2
+Date: 2013-11-26
 Authors@R: c(person(given="Russell S.", "Pierce", role = c("aut", "cre"),
     email = "Russell.S.Pierce@gmail.com"),
     person("Ryne A.", "Sherman", role = "aut", email="rsherm13@fau.edu")
@@ -14,12 +14,10 @@ Depends:
     reshape2,
     foreach,
     xtable,
-    plyr,
-    ez
 Description: A respository for a variety of useful functions which may be of
     interest or otherwise reused.  Unless otherwise stated in the function
     description, all functions are authored by Russell S. Pierce.
-License: Artistic-2.0
+License: GPL-3
 LazyLoad: yes
 Collate:
     'contrasts.r'

@@ -9,7 +9,7 @@
 #' @return character or numeric
 #' @examples 
 #' unfactor(factor(c(3,2,1)))
-unfactor <- function(factors,ignore=",")
+unfactor <- function(factors,ignore=",",...)
 {
   if (!is.factor(factors)) {
     message("In repsych::unfactor: the vector provided is not a factor; no values changed")
@@ -18,7 +18,7 @@ unfactor <- function(factors,ignore=",")
   char.ret <- as.character(factors) #make use of S3 versions of as.character
   #Get rid of those things in ignore
   for (pattern in ignore) {
-    char.ret <- gsub(pattern,"",char.ret)
+    char.ret <- gsub(pattern,"",char.ret,...)
   }
   #try to convert to numeric
   num.try <- suppressWarnings(as.numeric(char.ret))
