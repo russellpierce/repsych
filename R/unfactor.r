@@ -9,6 +9,7 @@
 #' @return character or numeric
 #' @examples 
 #' unfactor(factor(c(3,2,1)))
+#' unfactor(factor(c("1,000","2,123,123")))
 unfactor <- function(factors,ignore=",",...)
 {
   if (!is.factor(factors)) {
