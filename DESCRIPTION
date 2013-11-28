@@ -33,3 +33,4 @@ Collate:
     'Writing.R'
     'repsych-package.r'
     'unfactor.r'
+    'catseye.r'
