@@ -1,8 +1,8 @@
 Package: repsych
 Type: Package
 Title: Package for reproducible psychological research
-Version: 1.0.0.2
-Date: 2013-11-26
+Version: 1.0.0.3
+Date: 2013-11-27
 Authors@R: c(person(given="Russell S.", "Pierce", role = c("aut", "cre"),
     email = "Russell.S.Pierce@gmail.com"),
     person("Ryne A.", "Sherman", role = "aut", email="rsherm13@fau.edu")
