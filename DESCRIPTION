@@ -8,7 +8,7 @@ Authors@R: c(person(given="Russell S.", "Pierce", role = c("aut", "cre"),
     person("Ryne A.", "Sherman", role = "aut", email="rsherm13@fau.edu")
     )
 Maintainer: Russell S. Pierce <Russell.S.Pierce@gmail.com>
-Depends:
+Imports:
     e1071,
     MASS,
     reshape2,
