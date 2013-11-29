@@ -1,7 +1,6 @@
-#' Vectorized lookup
+#' catseye
 #' 
-#' This function does a vectorized lookup on a data.frame.  That is, each individual row is matched with a 
-#' particular column.
+#' Draw a catseye plot per idea from Cumming's book 
 #' 
 #' @param DV The variable to be plotted
 #' @param grp a vector of group identifiers 
@@ -12,10 +11,11 @@
 #' @param tick A logicial indicating if you want tick marks on the axis
 #' @param ylim To limit the bounds of the y axis
 #' @param col Set the color
+#' @param xpoints Not yet implemented 
 #' @param ... other arguments passed to graphics::plot
 #' @return Generates a plot in R graphics
-
-#' @author Ryne Sherman
+#' @note Also check CRAN for 'multicon' for Author's newest version
+#' @author Ryne A. Sherman
 #' @export
 #' @examples
 #' v <- rnorm(50)
@@ -48,8 +48,8 @@ catseye <- function(DV, grp = NULL, plotFUN = mean, errFUN = c("ci", "se", "sd")
     if (!is.null(errFUN)) {
       e <- do.call(errFUN, list(DV))
       e <- ifelse(res <= 0, -e, e)
-      Q <- qnorm(seq(.001, .999, by = .001), se(v))
-      Qscale <- Q * se(v) + mean(v)
+      Q <- qnorm(seq(.001, .999, by = .001), se(DV))
+      Qscale <- Q * se(DV) + mean(DV)
       if (is.null(ylim)) {
         lims <- c(min(Qscale), max(Qscale))
       }
