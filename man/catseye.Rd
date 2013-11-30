@@ -30,7 +30,11 @@
 
   \item{col}{Set the color}
 
+<<<<<<< HEAD
   \item{xpoints}{Create visual space}
+=======
+  \item{xpoints}{Not yet implemented}
+>>>>>>> 45812eb6dbf594512f596f108978445bd097e2fa
 
   \item{...}{other arguments passed to graphics::plot}
 }
@@ -41,6 +45,7 @@
   Draw a catseye plot per idea from Cumming's book
 }
 \note{
+<<<<<<< HEAD
   Check CRAN for 'multicon' on CRAN for Author's newest
   version
 }
@@ -68,6 +73,15 @@ fac2 <- rep(3:4, 100)
 catseye(f4, list(fac1, fac2), xlab="Conditions", ylab="DV", grp.names=c("High/High", "High/Low", "Low/High", "Low/Low"), las=1, col="orange", main="A 2 x 2 Experiment Comparison")
 # Using the xpoints argument to create visual space
 catseye(f4, list(fac1, fac2), xlab="Conditions", ylab="DV", grp.names=c("High/High", "High/Low", "Low/High", "Low/Low"), xpoints=c(1,2,4,5), las=1, col="orange", main="A 2 x 2 Experiment Comparison")
+=======
+  Also check CRAN for 'multicon' for Author's newest
+  version
+}
+\examples{
+v <- rnorm(50)
+catseye(v, conf=.95, xlab="", ylab="DV", las=1)
+catseye(v, conf=.99, xlab="", ylab="DV", las=1, col="light green")
+>>>>>>> 45812eb6dbf594512f596f108978445bd097e2fa
 }
 \author{
   Ryne A. Sherman

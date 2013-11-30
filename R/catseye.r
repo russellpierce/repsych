@@ -69,7 +69,11 @@ catseye <- function(DV, grp = NULL, plotFUN = mean, errFUN = c("ci", "se", "sd")
       e <- do.call(errFUN, list(DV))
       e <- ifelse(res <= 0, -e, e)
       Q <- qnorm(seq(.001, .999, by = .001), se(DV))
+<<<<<<< HEAD
       Qscale <- Q * se(DV) + res
+=======
+      Qscale <- Q * se(DV) + mean(DV)
+>>>>>>> 45812eb6dbf594512f596f108978445bd097e2fa
       if (is.null(ylim)) {
         lims <- c(min(Qscale), max(Qscale))
       }
