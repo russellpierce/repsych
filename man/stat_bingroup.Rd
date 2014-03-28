@@ -1,0 +1,66 @@
+\name{stat_bingroup}
+\alias{stat_bingroup}
+\title{Bin data by group.}
+\usage{
+  stat_bingroup(mapping = NULL, data = NULL, geom = "bar",
+    position = "stack", width = 0.9, drop = FALSE,
+    right = FALSE, binwidth = NULL, origin = NULL,
+    breaks = NULL, ...)
+}
+\arguments{
+  \item{binwidth}{Bin width to use. Defaults to 1/30 of the
+  range of the data}
+
+  \item{origin}{Origin of first bin}
+
+  \item{breaks}{Actual breaks to use. Overrides bin width
+  and origin}
+
+  \item{mapping}{The aesthetic mapping, usually constructed
+  with aes or aes_string. Only needs to be set at the layer
+  level if you are overriding the plot defaults.}
+
+  \item{data}{A layer specific dataset - only needed if you
+  want to override the plot defaults.}
+
+  \item{geom}{The geometric object to use display the data}
+
+  \item{position}{The position adjustment to use for
+  overlappling points on this layer}
+
+  \item{width}{Width of bars when used with categorical
+  data/The width of the tiles.}
+
+  \item{right}{If \code{TRUE}, right-closed, left-open, if
+  \code{FALSE},}
+
+  \item{drop}{If TRUE, remove all bins with zero counts}
+
+  \item{...}{other arguments passed on to layer}
+}
+\value{
+  New data frame with additional columns (reference by
+  ...y...): \item{count}{number of data points in bin}
+  \item{scaledcount}{count, scaled such that the maximum
+  value of for a bar in each group is 1}
+  \item{groupprop}{proportion of points in the x-axis bin
+  relative to the number of points in the group}
+}
+\description{
+  Missing values are currently silently dropped.
+}
+\section{Aesthetics}{
+  \Sexpr[results=rd,stage=build]{ggplot2:::rd_aesthetics("stat",
+  "bin")}
+}
+\examples{
+\donttest{
+ test <- data.frame(
+    test1 = factor(sample(letters[1:2], 100, replace = TRUE,prob=c(.25,.75)),ordered=TRUE,levels=letters[1:2]),
+    test2 = factor(sample(letters[3:8], 100, replace = TRUE),ordered=TRUE,levels=letters[3:8])
+ )
+ggplot(test, aes(x=test2))+
+  geom_bar(aes(group=test1,fill=test1,y = ..groupprop..),stat="bingroup",position="dodge")
+}
+}
+
