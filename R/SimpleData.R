@@ -1,3 +1,49 @@
+#' countif
+#' 
+#' This is a convenience function that provides the number of entries in the vector that match the target value
+#' 
+#' @export
+#' @param vector The vector in which the items to be counted are being stored
+#' @param targetval The value that is being compared against
+#' @examples 
+#' countif(rep(LETTERS,2),"A")
+countif <- function(vector,targetval)
+{
+  if (!(length(targetval) == 1)) {stop("More than or less than one target value provided to countif")}
+  return(sum(vector==targetval))
+}
+NULL
+
+
+#' padChar
+#' 
+#' Pad a vector of character strings with a single character to a set length
+#' 
+#' @export
+#' @param string A single string or vector of strings
+#' @param padlen The desired length of the padded string
+#' @param filler A single character that will be used to pad the string
+#' @param padSide Which side of the string will be padded, default to 'left' all other values are treated as a right side padding.
+#' @examples
+#' padChar(c("bob","tool","marks"),5)
+#' padChar(c("bob","tool","marks"),5,"0","right")
+padChar <- function(string, padlen,filler="0",padSide="left")
+{
+  if (nchar(filler) != 1) {stop("Filler is expected to be a single character")}
+  if (any(nchar(string) > padlen)) {warning("A string is already in excess of the target padded length")}
+  padlen <- padlen-nchar(as.character(string))
+  padlen[padlen < 0] <- 0
+  getfiller <- function(x) {return(paste(rep(filler,x),sep="",collapse=""))}
+  fillers <- sapply(padlen,FUN=getfiller)
+  if (padSide == "left") {
+    res <- paste(fillers,string,sep="")
+  } else {
+    res <- paste(string,fillers,sep="")
+  }
+  return(res)
+}
+NULL
+
 #' Vectorized lookup
 #' 
 #' This function does a vectorized lookup on a data.frame.  That is, each individual row is matched with a 
@@ -278,3 +324,59 @@ longframe <- function(wide.data,btwnsubnames,wide.var.names,value.name=NA,dropco
 }
 NULL
 
+
+#' createSquareMatrix
+#' 
+#' Given vectors for a square matrix (upper triangle, lower triangle, and diagonal) build the square correlation matrix
+#' 
+#' @export
+#' @param lowerarray A vector of numeric values (excluding diagonals) that define the lower triangle of the square matrix
+#' @param upperarray A vector of numeric values (excluding diagonals) that define the lower triangle of the square matrxi
+#' @param diagarray What you want in the diagonal or a vector that will fill the diagonal
+#' @examples
+#' createSquareMatrix(LETTERS[1],LETTERS[6:8],1)
+#' createSquareMatrix(1:3,1,6:8)
+#' createSquareMatrix(1:3,4:6,7:9)
+#' createSquareMatrix(1:6,7:12,13:16)
+createSquareMatrix <- function(lowerarray,upperarray,diagarray=NA) {
+  #The first step is to figure out, given the length of the array, the size of the square matrix it defines
+  solve.x <- function(n) {
+    #given the number of values, what is the dimension of the square matrix 
+    x1 <- 1/2 * (sqrt(8 * n + 1) + 1)
+    x2 <- 1/2 * (1 - sqrt(8 * n + 1))
+    return(max(x1,x2))
+  }
+  if (length(lowerarray) == 1) {lowerarray <- rep(lowerarray,length(upperarray))}
+  if (length(upperarray) == 1) {upperarray <- rep(upperarray,length(lowerarray))}
+  if (!(length(lowerarray) == length(upperarray))) {stop("upper and lower array aren't describing the same size matrix")}
+  
+  lengtharray <- length(lowerarray)
+  matrix.dim <- solve.x(lengtharray)
+  if (matrix.dim != trunc(matrix.dim)) {stop("In createCorrelationMatrix it was not possible to build a square matrix from the provided values, did you remember to eliminate diagonals?")}
+  if (length(diagarray)==1) {diagarray <- rep(diagarray,matrix.dim)}
+  if (!(length(diagarray) == matrix.dim)) {
+    stop("The number of diagonal values don't match the dimentions of the matrix")
+  }
+  m <- matrix(NA,matrix.dim,matrix.dim) #make the empty matrix
+  matrix.pos <- 1     # this is the slowly moving position
+  m[matrix.pos,matrix.pos] <- diagarray[matrix.pos]
+  n <- 2 # this is the min index of the quickly moving position, it gets larger as we go through the self modifying loop
+  array.pos <- 1      # this keeps track of where we are in the array 
+  #we solve the underlying issue with a self modifying loop nested in a while statement
+  while(array.pos <= lengtharray) #terminate the while loop when we get to the end of the array
+  {
+    for (i in (n):matrix.dim) # this is the quickly moving position
+    {
+      m[matrix.pos,i] <- upperarray[array.pos]
+      m[i,matrix.pos] <- lowerarray[array.pos]
+      array.pos <- array.pos + 1 # go to the next number
+    }
+    
+    matrix.pos <- matrix.pos + 1 # move to the next slowly moving position
+    m[matrix.pos,matrix.pos] <- diagarray[matrix.pos]
+    n <- n + 1                    # increase the number of the minimum index for the quickly moving position
+  }
+  
+  return(m)
+}
+NULL

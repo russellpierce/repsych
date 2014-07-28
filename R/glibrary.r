@@ -16,11 +16,6 @@
 #' @examples
 #' #glibrary(lattice,MASS) #not run to prevent needless dependency
 glibrary <- function(..., lib.loc = NULL, quietly = FALSE, warn.conflicts = TRUE, pickmirror = FALSE, countrycode = "us") {
-
-  character.only <- TRUE  #this value is locked to TRUE so that the function passes the character value to require and not the variable name thislib
-  librarynames <- unlist(lapply(as.list(substitute(.(...)))[-1],as.character))
-  success <- vector("logical", length(librarynames))
-  needToInstall <- !librarynames %in% installed.packages()[,"Package"]
   warningHandle <- function(w) {
     if (grepl("there is no package called",w$message,fixed=TRUE)) {
       return(FALSE) #not-loadable
@@ -28,6 +23,19 @@ glibrary <- function(..., lib.loc = NULL, quietly = FALSE, warn.conflicts = TRUE
       return(TRUE) #loadable
     }
   }
+  
+  character.only <- TRUE  #this value is locked to TRUE so that the function passes the character value to require and not the variable name thislib
+  librarynames <- unlist(lapply(as.list(substitute(.(...)))[-1],as.character))
+  #if package already loaded, remove it from librarynames before processing further
+  si.res <- sessionInfo()
+  cur.loaded <- c(si.res$basePkgs,names(si.res$otherPkgs),names(si.res$loadedOnly))
+  librarynames <- librarynames[librarynames %!in% cur.loaded]
+  success <- vector("logical", length(librarynames))
+  if (length(success)==0) {return(invisible(TRUE))} #everything already loaded, end.
+  
+  alreadyInstalled <- installed.packages()[,"Package"]
+  needToInstall <- !librarynames %in% alreadyInstalled
+  
   if (any(needToInstall)) {
     if (pickmirror) {chooseCRANmirror()}
     if (getOption("repos")[["CRAN"]] == "@CRAN@") {
@@ -59,33 +67,28 @@ glibrary <- function(..., lib.loc = NULL, quietly = FALSE, warn.conflicts = TRUE
       repos["CRAN"] <- gsub("/$", "", URL[1L])
       options(repos = repos)
     } #done setting CRAN mirror
-    for (i in librarynames[needToInstall]) {
-      thislib <- i  #oddly, require won't take librarynames[i], so we do it this way      
-      message("\nIn repsych::glibrary:  Attempting to install and load missing package ",thislib,"\n")
-      install.packages(thislib)
-    }
-  } #done installing packages
-  needToInstall <- !librarynames %in% installed.packages()[,"Package"]
-  if (any(needToInstall)) {
-    stop("In repsych::glibrary: Could not download and/or install ",librarynames[needToInstall],", glibrary stopped.")
-  }
-  message("In repsych::glibrary:  Attempting to load requested packages...\n")
-  for (i in 1:length(librarynames)) {
-    thislib <- librarynames[i]  #oddly, require won't take librarynames[i], so we do it this way      
-    success[i] <- tryCatch(
-      require(thislib, lib.loc = lib.loc, quietly = FALSE, warn.conflicts = warn.conflicts, character.only = TRUE),
-      warning=warningHandle)
-    if (success[i]) {
-      require(thislib, lib.loc = lib.loc, quietly = FALSE, warn.conflicts = warn.conflicts, character.only = TRUE)  
-    }    
-  }
-  #Done handing cases where at least one package did not install
+    #installing packages
+    installResults <- sapply(librarynames[needToInstall],install.packages)
+    #checking for successful install
+    needToInstall <- !librarynames %in% installed.packages()[,"Package"]
+    if (any(needToInstall)) {
+      stop(paste("In repsych::glibrary: Could not download and/or install: ",paste(librarynames[needToInstall],collapse=", "),"... glibrary stopped.",sep=""))
+    } # done reporting any failure to install
+  } #done if any needed to install
+
+  #message("In repsych::glibrary:  Attempting to load requested packages...\n")
+  success <- tryCatch(
+    sapply(librarynames,require, lib.loc = lib.loc, quietly = FALSE, warn.conflicts = warn.conflicts, character.only = TRUE),
+      warning=warningHandle
+  ) #end tryCatch
+
   if (all(success)) {
-    message("In repsych::glibrary:  Success!")
+    #message("In repsych::glibrary:  Success!")
     return(invisible(TRUE))
   } else {
-    stop(paste("\nIn repsych::glibrary, unable to load: ", paste(librarynames[!success], collapse = " "), 
+    stop(paste("\nIn repsych::glibrary, unable to load: ", paste(librarynames[!success]), 
                collapse = " "))
   }
+  stop("A problem occured in glibrary") #shouldn't get this far down, all returns should be made.
 }
 NULL

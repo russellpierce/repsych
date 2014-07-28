@@ -88,4 +88,20 @@ If trade or manufacturers' names or products are mentioned,
 Communications made through this website in no way constitute legal or official
 notice or comment to any individual or organization for any purpose.
 
+# Version History
+## 1.0
+### 1.0.1
+#### 1.0.1.1
+* Added missing ggplot import
+* Updated glibrary to drop some messages and hopefully speed things up
+* Added padChar
+* Added countif
+* Added createSquareMatrix
+* Added jpeg.save
+* Added minFprime
+`
+# Other Sources
+* ggplot2:::interleave: Interleave (or zip) multiple vectors into a single vector.
 
+
+`

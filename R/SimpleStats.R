@@ -355,3 +355,25 @@ useAggregateErrorTerms <- function(aov.obj,terms.to.combine) {
   return(res)
 }
 NULL
+
+#' minFprime
+#' 
+#' Calculates min F' from Clark (1973)
+#' 
+#' @param F1 F value from the first test
+#' @param F2 F value from the second test
+#' @param numdf df of the numerator (the variable of interest)
+#' @param F1denomdf The df denominator of the first test
+#' @param F2denomdf The df denominator of the second test
+#' @param round Whether to round the p value to three places
+minFprime <- function(F1, F2, numdf, F1denomdf, F2denomdf,round=FALSE)
+{
+  Fprimemin = F1*F2/(F1+F2)
+  i <- numdf
+  j <- (F1+F2)^2 / ((F1^2/F2denomdf)+(F2^2/F1denomdf))
+  p <- pf(Fprimemin,i,j,lower.tail=FALSE)
+  if (round) {p <- round(p,3)}
+  cat("min F'(",i,", ",j,") = ",Fprimemin," p = ",droplead0(p),"\n",sep="")
+  return(c(Fprimemin=Fprimemin,numdf=i,denomdf=j,p=p))
+}
+NULL

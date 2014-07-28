@@ -1,20 +1,20 @@
 Package: repsych
 Type: Package
 Title: Package for reproducible psychological research
-Version: 1.0.1.0
-Date: 2014-03-28
+Version: 1.0.1.1
+Date: 2014-07-28
 Authors@R: c(person(given="Russell S.", "Pierce", role = c("aut", "cre"),
     email = "Russell.S.Pierce@gmail.com"),
     person("Ryne A.", "Sherman", role = "aut", email="rsherm13@fau.edu")
     )
 Maintainer: Russell S. Pierce <Russell.S.Pierce@gmail.com>
-Requires: ggplot2
 Imports:
     e1071,
     MASS,
     reshape2,
     foreach,
     xtable,
+    ggplot2,
     proto,
     scales
 Description: A respository for a variety of useful functions which may be of
@@ -22,17 +22,3 @@ Description: A respository for a variety of useful functions which may be of
     description, all functions are authored by Russell S. Pierce.
 License: GPL-3
 LazyLoad: yes
-Collate:
-    'contrasts.r'
-    'counterbalance.r'
-    'deprecated.r'
-    'glibrary.r'
-    'graphics.r'
-    'SimpleData.R'
-    'SimpleStats.R'
-    'TimeSeries.r'
-    'util.r'
-    'VisualAngleCalculations.R'
-    'Writing.R'
-    'repsych-package.r'
-    'unfactor.r'
