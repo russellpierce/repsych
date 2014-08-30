@@ -42,22 +42,6 @@ source("https://raw.github.com/drknexus/repsych/master/R/glibrary.r")
 ```
 Where you replace glibrary.r with your desired repsych script.
 
-### Private distribution
-This method isn't updated and probably only works for 2.15.x at the moment.  However, this is the only method other than githubs that brings in the function documentation along with the functions.
-```
-download.file("https://raw.github.com/drknexus/repsych/master/repos/src/contrib/repsych_3.0.0.2.tar.gz",
-  "./repsych-current.tar.gz",
-  mode="wb"
-)
-install.packages("repsych-current.tar.gz",repos=NULL,type="source")
-```
-
-### Attach as environment
-This method sources all of the files on github under the 'master' branch into an environment called repsych.tmp and then attaches to that environment.
-```
-source('https://raw.github.com/drknexus/repsych/master/allplain.r')
-```
-
 ## Notice
 Not all code is in here is mine.  Not all code in here works.
 

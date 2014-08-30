@@ -28,7 +28,7 @@ glibrary <- function(..., lib.loc = NULL, quietly = FALSE, warn.conflicts = TRUE
   librarynames <- unlist(lapply(as.list(substitute(.(...)))[-1],as.character))
   #if package already loaded, remove it from librarynames before processing further
   si.res <- sessionInfo()
-  cur.loaded <- c(si.res$basePkgs,names(si.res$otherPkgs),names(si.res$loadedOnly))
+  cur.loaded <- c(si.res$basePkgs,names(si.res$otherPkgs)) #removed names(si.res$loadedOnly) because those are loaded, but not attached, so glibrary does need to handle them.
   librarynames <- librarynames[librarynames %!in% cur.loaded]
   success <- vector("logical", length(librarynames))
   if (length(success)==0) {return(invisible(TRUE))} #everything already loaded, end.
