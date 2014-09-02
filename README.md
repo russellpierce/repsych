@@ -4,14 +4,7 @@ repsych
 R Function for Reproducible Research in Psychology
 
 ## Accessing
-I think the good old days of the repository are gone.  Soon (by the end of 2013) the current stable version of repsych
-will be on CRAN.  Until that time, or if you want to work on the development version, there are several approaches
-availble.
-
-1. The official github method:  a pain for Windows users, but fine for most people
-2. Manual:  this is probably what you want if you are only interested in a few specific functions from repsych
-3. Private distribution from source
-4. On-the-fly script environment
+Following a Bazaar style of development, repsych will soon be pushed to CRAN (really).  This bleeding edge development version is usually going to be preferable.  You can access this version using the install_github function inside of `devtools` (details below).  If you rely on some 'broken' functionality, you can always grab the source from the right version here (or hold onto it yourself with packrat).
 
 ### Official github method
 After you complete the steps below you can use the following code to update to the current version:
@@ -29,18 +22,13 @@ library(repsych)
 #stuff you want to do here
 dev_mode(FALSE)
 ```
+
 #### Mac/Linux Setup
 Install the devtools library ```install.packages('devtools')```
 #### Windows Setup
 * Install Rtools, http://cran.r-project.org/bin/windows/Rtools/ to match your version of R
-* Install devtools via ```install.packages('devtools',type='source')```
+* Install devtools via ```install.packages('devtools',type='source')```.  Using type='source' may result in not needing Rtools (your milage may vary).
 
-
-### Manual
-```
-source("https://raw.github.com/drknexus/repsych/master/R/glibrary.r")
-```
-Where you replace glibrary.r with your desired repsych script.
 
 ## Notice
 Not all code is in here is mine.  Not all code in here works.
@@ -83,9 +71,8 @@ notice or comment to any individual or organization for any purpose.
 * Added createSquareMatrix
 * Added jpeg.save
 * Added minFprime
-`
+* Minor updates to description file and more notable changes to README.md
+
 # Other Sources
-* ggplot2:::interleave: Interleave (or zip) multiple vectors into a single vector.
-
-
-`
+This is a list of functions that duplicate things `repsych` might otherwise do.
+* ggplot2:::interleave: Interleave (or zip) multiple vectors into a single vector, this functionality is inside of latinSquareDigram and should probably be made bare.
