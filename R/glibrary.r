@@ -82,6 +82,7 @@ glibrary <- function(..., lib.loc = NULL, quietly = FALSE, warn.conflicts = TRUE
   #, warning=warningHandle) #end tryCatch
   if(length(success) != length(librarynames)) {stop("A package failed to return a success in glibrary.")}
 
+
   if (all(success)) {
     #message("In repsych::glibrary:  Success!")
     return(invisible(TRUE))
