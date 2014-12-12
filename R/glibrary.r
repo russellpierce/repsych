@@ -25,11 +25,11 @@ glibrary <- function(..., lib.loc = NULL, quietly = FALSE, warn.conflicts = TRUE
   }
   
   character.only <- TRUE  #this value is locked to TRUE so that the function passes the character value to require and not the variable name thislib
-  librarynames <- unlist(lapply(as.list(substitute(.(...)))[-1],as.character))
+  original.librarynames <- unlist(lapply(as.list(substitute(.(...)))[-1],as.character))
   #if package already loaded, remove it from librarynames before processing further
   si.res <- sessionInfo()
   cur.loaded <- c(si.res$basePkgs,names(si.res$otherPkgs)) #removed names(si.res$loadedOnly) because those are loaded, but not attached, so glibrary does need to handle them.
-  librarynames <- librarynames[librarynames %!in% cur.loaded]
+  librarynames <- original.librarynames[librarynames %!in% cur.loaded]
   success <- vector("logical", length(librarynames))
   if (length(success)==0) {return(invisible(TRUE))} #everything already loaded, end.
   
@@ -78,7 +78,7 @@ glibrary <- function(..., lib.loc = NULL, quietly = FALSE, warn.conflicts = TRUE
 
   #message("In repsych::glibrary:  Attempting to load requested packages...\n")
   success <- tryCatch(
-    sapply(librarynames,require, lib.loc = lib.loc, quietly = FALSE, warn.conflicts = warn.conflicts, character.only = TRUE),
+    sapply(librarynames.original,require, lib.loc = lib.loc, quietly = FALSE, warn.conflicts = warn.conflicts, character.only = TRUE),
       warning=warningHandle
   ) #end tryCatch
 
