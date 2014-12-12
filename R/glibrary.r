@@ -77,10 +77,10 @@ glibrary <- function(..., lib.loc = NULL, quietly = FALSE, warn.conflicts = TRUE
   } #done if any needed to install
 
   #message("In repsych::glibrary:  Attempting to load requested packages...\n")
-  success <- tryCatch(
-    sapply(librarynames,require, lib.loc = lib.loc, quietly = FALSE, warn.conflicts = warn.conflicts, character.only = TRUE),
-      warning=warningHandle
-  ) #end tryCatch
+  #success <- tryCatch(
+  success <- sapply(librarynames,require, lib.loc = lib.loc, quietly = FALSE, warn.conflicts = warn.conflicts, character.only = TRUE)
+  #, warning=warningHandle) #end tryCatch
+  if(length(success) != length(librarynames)) {stop("A package failed to return a success in glibrary.")}
 
   if (all(success)) {
     #message("In repsych::glibrary:  Success!")
