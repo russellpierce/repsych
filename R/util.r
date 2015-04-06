@@ -19,26 +19,17 @@
 #' f.log("a")
 #' f.as.numeric <- factory(as.numeric)
 #' f.as.numeric(c("a","b",1))
-factory <- function (fun) {
-  library(data.table)
+factory <- function(fun)
   function(...) {
     warn <- err <- NULL
-    res <- withCallingHandlers(tryCatch(fun(...), error = function(e) {
-      err <<- conditionMessage(e)
-      NULL
-    },finally=data.table::setattr(res,"factoryError",TRUE)), warning = function(w) {
-      warn <<- append(warn, conditionMessage(w))
-      invokeRestart("muffleWarning")
-    })
-    attrFactoryError <- attr(res,"factoryError")
-    if (is.null(attrFactoryError) & is.null(warn) & is.null(err)) {
-      return(res)
-    } else if (is.null(attrFactoryError) & is.null(err)) {
-      data.table::setattr(res,"warn",warn)
-      return(res)
-    } else {
-      return(list(warn = warn, err = err))
-    }
+    res <- withCallingHandlers(
+      tryCatch(fun(...), error=function(e) {
+        err <<- conditionMessage(e)
+        NULL
+      }), warning=function(w) {
+        warn <<- append(warn, conditionMessage(w))
+        invokeRestart("muffleWarning")
+      })
+    return(list(res, warn=warn, err=err))
   }
-}
 NULL
