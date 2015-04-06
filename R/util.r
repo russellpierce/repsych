@@ -10,7 +10,7 @@
 #' I have not included the other factory functions included in the original Stack Overflow answer because they did not play well with the return item as an S4 object.
 #' @export
 #' @param fun The function to be turned into a factory
-#' @return The result of the function given to turn into a factory.  If this function was in error "An error as occured" as a character element.  factory-error and factory-warning attributes may also be set as appropriate.
+#' @return The result of the function given to turn into a factory.  If this function was in error "An error as occurred" as a character element.  factory-error and factory-warning attributes may also be set as appropriate.
 #' @references
 #' \url{http://stackoverflow.com/questions/4948361/how-do-i-save-warnings-and-errors-as-output-from-a-function}
 #' @author Martin Morgan; Modified by Russell S. Pierce
@@ -35,23 +35,23 @@
 #' # assert_that(hasError(factory(bothErrorAndWarning)())==TRUE)
 #' # assert_that(hasWarning(factory(ErrorOnly)())==FALSE)
 #' # assert_that(hasError(factory(ErrorOnly)())==TRUE)
-#' # assert_that((hasWarning(factory(WarningOnly)()))=TRUE)
+#' # assert_that((hasWarning(factory(WarningOnly)()))==TRUE)
 #' # assert_that(hasError(factory(WarningOnly)())==FALSE)
 
 factory <- function (fun) {
-  errorOccured <- FALSE
+  errorOccurred <- FALSE
   library(data.table)
   function(...) {
     warn <- err <- NULL
     res <- withCallingHandlers(tryCatch(fun(...), error = function(e) {
       err <<- conditionMessage(e)
-      list()
-    },finally=errorOccured <<- TRUE), warning = function(w) {
+      NULL
+    },finally=errorOccurred <<- TRUE), warning = function(w) {
       warn <<- append(warn, conditionMessage(w))
       invokeRestart("muffleWarning")
     })
-    if (errorOccured) {
-      res <- "An error occured"
+    if (errorOccurred) {
+      res <- "An error occurred in the factory function"
     } 
     
     if (is.character(warn)) {
