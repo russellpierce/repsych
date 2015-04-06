@@ -45,8 +45,9 @@ factory <- function (fun) {
     warn <- err <- NULL
     res <- withCallingHandlers(tryCatch(fun(...), error = function(e) {
       err <<- conditionMessage(e)
+      errorOccurred <<- TRUE
       NULL
-    },finally=errorOccurred <<- TRUE), warning = function(w) {
+    }), warning = function(w) {
       warn <<- append(warn, conditionMessage(w))
       invokeRestart("muffleWarning")
     })
