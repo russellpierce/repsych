@@ -10,26 +10,62 @@
 #' I have not included the other factory functions included in the original Stack Overflow answer because they did not play well with the return item as an S4 object.
 #' @export
 #' @param fun The function to be turned into a factory
-#' @return list[3]: item 1 is the result from the function and $warn and $err contain warning and error messages respectively.
+#' @return The result of the function given to turn into a factory.  If this function was in error "An error as occured" as a character element.  factory-error and factory-warning attributes may also be set as appropriate.
 #' @references
 #' \url{http://stackoverflow.com/questions/4948361/how-do-i-save-warnings-and-errors-as-output-from-a-function}
-#' @author Martin Morgan; Packaged by Russell S. Pierce
+#' @author Martin Morgan; Modified by Russell S. Pierce
 #' @examples 
 #' f.log <- factory(log)
 #' f.log("a")
 #' f.as.numeric <- factory(as.numeric)
 #' f.as.numeric(c("a","b",1))
-factory <- function(fun)
+#' # Ad Hoc utility functions available
+#' # .has <- function(x, what) {
+#' #   !is.null(attr(x,what))
+#' # }
+#' # hasWarning <- function(x) .has(x, "factory-warning")
+#' # hasError <- function(x) .has(x, "factory-error")
+#' # isClean <- function(x) !(hasError(x) | hasWarning(x))
+#' # Tests not run:
+#' # bothErrorAndWarning <- function() {warning("A warning");stop("Really an error")}
+#' # ErrorOnly <- function() {stop("Really an error")}
+#' # WarningOnly <- function() {warning("A warning")}
+#' # glibrary(assertthat)
+#' # assert_that(hasWarning(factory(bothErrorAndWarning)())==TRUE)
+#' # assert_that(hasError(factory(bothErrorAndWarning)())==TRUE)
+#' # assert_that(hasWarning(factory(ErrorOnly)())==FALSE)
+#' # assert_that(hasError(factory(ErrorOnly)())==TRUE)
+#' # assert_that((hasWarning(factory(WarningOnly)()))=TRUE)
+#' # assert_that(hasError(factory(WarningOnly)())==FALSE)
+
+factory <- function (fun) {
+  errorOccured <- FALSE
+  library(data.table)
   function(...) {
     warn <- err <- NULL
-    res <- withCallingHandlers(
-      tryCatch(fun(...), error=function(e) {
-        err <<- conditionMessage(e)
-        NULL
-      }), warning=function(w) {
-        warn <<- append(warn, conditionMessage(w))
-        invokeRestart("muffleWarning")
-      })
-    return(list(res, warn=warn, err=err))
+    res <- withCallingHandlers(tryCatch(fun(...), error = function(e) {
+      err <<- conditionMessage(e)
+      list()
+    },finally=errorOccured <<- TRUE), warning = function(w) {
+      warn <<- append(warn, conditionMessage(w))
+      invokeRestart("muffleWarning")
+    })
+    if (errorOccured) {
+      res <- "An error occured"
+    } 
+    
+    if (is.character(warn)) {
+      data.table::setattr(res,"factory-warning",warn)
+    } else {
+      data.table::setattr(res,"factory-warning",NULL) 
+    }
+    
+    if (is.character(err)) {
+      data.table::setattr(res,"factory-error",err)
+    } else {
+      data.table::setattr(res, "factory-error", NULL)
+    }  
+    return(res)
   }
+}
 NULL
