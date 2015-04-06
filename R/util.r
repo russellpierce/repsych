@@ -5,7 +5,7 @@
 #' If there are no errors and no warnings, the result is provided.  
 #' If there are warnings but no errors, the result is provided with a warn attribute set.
 #' If there are errors, the result retutrns is a list with the elements of warn and err.
-#' This is a nice way to recover from a loop problems that may have occured during loop evaluation or during cluster usage.
+#' This is a nice way to recover from a problems that may have occurred during loop evaluation or during cluster usage.
 #' Check the references for additional related functions.
 #' I have not included the other factory functions included in the original Stack Overflow answer because they did not play well with the return item as an S4 object.
 #' @export
