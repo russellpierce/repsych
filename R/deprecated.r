@@ -1,10 +1,10 @@
-#' Deprecated function(s) in the russmisc package
+#' Deprecated function(s) in the repsych package
 #' 
 #' These functions are provided for compatiblity with older version of
-#' the russmisc package and russfnc scripts.  They may eventually be completely
+#' the repsych package and russfnc scripts.  They may eventually be completely
 #' removed.
-#' @rdname russmisc-deprecated
-#' @name russmisc-deprecated
+#' @rdname repsych-deprecated
+#' @name repsych-deprecated
 #' @param ... Parameters to be passed to the modern version of the function
 #' @docType package
 #' @export  latinsquare.digram Conv3Dto2D Conv2Dto3D dist3D.l product
@@ -19,19 +19,19 @@
 #' }
 #'  
 latinsquare.digram <- function(...) {
-  .Deprecated("latinSquareDigram",package="russmisc")
+  .Deprecated("latinSquareDigram",package="repsych")
   latinSquareDigram(...)
 }
 Conv3Dto2D <- function(...) {
-  .Deprecated("conv3Dto2D",package="russmisc")
+  .Deprecated("conv3Dto2D",package="repsych")
   conv3Dto2D(...)
 }
 Conv2Dto3D <- function(...) {
-  .Deprecated("conv2Dto3D",package="russmisc")
+  .Deprecated("conv2Dto3D",package="repsych")
   conv2Dto3D(...)
 }
 dist3D.l <- function(...) {
-  .Deprecated("dist3D",package="russmisc")
+  .Deprecated("dist3D",package="repsych")
   dist3D(...)
 }
 product <- function(...)
@@ -43,14 +43,14 @@ NULL
 
 NULL
 
-#' Defunct function(s) in the russmisc package
+#' Defunct function(s) in the repsych package
 #' 
-#' These functions were in older versions of the russmisc package
+#' These functions were in older versions of the repsych package
 #' or russfnc scripts, but now have been completely removed.
 #' Where possible they will retain a call to .Defunct.
 #' 
-#' @rdname russmisc-defunct
-#' @name russmisc-defunct
+#' @rdname repsych-defunct
+#' @name repsych-defunct
 #' @aliases t.contrast
 #' @section Details:
 #' \tabular{rl}{
