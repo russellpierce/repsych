@@ -38,7 +38,7 @@ Suggestions accepted.
 ### Function Names
 * Functions will be provided in camelCaseLikeThis except where it harms readablity or makes no sense.
 * For example km2mi is not benefited by being turned into km2Mi.
-* Abreviations are all uppercase unless they start the function name.  For example aicCompare versus compareAIC.
+* Abbreviations are all uppercase unless they start the function name.  For example aicCompare versus compareAIC.
 * As a general matter, functions will be defined in verb-noun order as in "I want to <verb> <noun>".
 * Nouns for these purposes will remain in their singular form, e.g. compareAIC not compareAICs.
 
