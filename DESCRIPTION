@@ -8,13 +8,15 @@ Authors@R: c(person(given="Russell S.", "Pierce", role = c("aut", "cre"),
     person("Ryne A.", "Sherman", role = "aut", email="rsherm13@fau.edu")
     )
 Maintainer: Russell S. Pierce <Russell.S.Pierce@gmail.com>
+Requires: data.table,
+    parallel,
+    ggplot2
 Imports:
     e1071,
     MASS,
     reshape2,
     foreach,
     xtable,
-    ggplot2,
     proto,
     scales
 Description: A respository for a variety of useful functions which may be of
@@ -22,3 +24,4 @@ Description: A respository for a variety of useful functions which may be of
     description, all functions are authored by Russell S. Pierce.
 License: GPL-3
 LazyLoad: yes
+RoxygenNote: 5.0.1
