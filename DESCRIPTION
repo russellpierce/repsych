@@ -9,8 +9,7 @@ Authors@R: c(person(given="Russell S.", "Pierce", role = c("aut", "cre"),
     )
 Maintainer: Russell S. Pierce <Russell.S.Pierce@gmail.com>
 Requires: data.table,
-    parallel,
-    ggplot2
+    parallel
 Imports:
     e1071,
     MASS,
